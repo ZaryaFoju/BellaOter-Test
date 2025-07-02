@@ -18,7 +18,7 @@
     --fs-lg: 2rem;
     --fs-xl: 2.4rem;
     --fs-xxl: 3.2rem;
-    --fs-biggest: clamp(3rem, 8vw, 5rem);
+    --fs-biggest: clamp(6rem, 16vw, 10rem);
     /* font weight */
     --fw-regular: 400;
     --fw-medium: 500;
@@ -92,13 +92,26 @@ main {
 body {
   min-height: 100vh;
   width: 100vw;
-  background-color: var(--color-bg-primary);
+  background-image: radial-gradient(circle at 50% 50%, var(--color-bg-primary), var(--color-bg-secondary));
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: move 10s alternate infinite;
   font-family: var(--ff-body);
   font-size: var(--fs-md);
   color: var(--color-text);
   margin-top: var(--height-header);
   line-height: 1.2;
   overflow-x: hidden;
+
+}
+
+@keyframes move {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 /* Header/Navigation Styles */
@@ -231,3 +244,90 @@ i{
     
 }
 
+/* Hero Section Styles */
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh; /* or 100vh for full viewport height */
+  width: 100%;
+}
+
+.hero-content h1{
+    color: var(--color-primary-dark);
+    font-size: var(--fs-biggest);
+    padding: 2rem;
+    text-wrap: balance;
+}
+
+.hero-content h1:hover{
+    color: var(--color-primary);
+    transition: color 0.3s ease-in-out;
+}
+
+.hero-selection{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.hero-selection button{
+    background-color: var(--color-bg-secondary);
+    color: var(--color-white);
+    font-size: var(--fs-xxl);
+    font-family: var(--ff-body);
+    font-weight: var(--fw-bold);
+    padding: 1rem 7rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    letter-spacing: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.hero-selection button:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: unset;
+    width: 100%;
+  }
+  .hero-content h1 {
+    font-size: var(--fs-xxl);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-selection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+  }
+  .hero-selection button {
+    display: block;
+    width: 90vw;
+    max-width: 350px;
+    margin: 0.5rem auto;
+    box-sizing: border-box;
+    text-align: center;
+    margin-right: 11.5%;
+  }
+}
+
+/* Choices Section Styles */
+
+#grounding-choice {
+  display: none;
+}
