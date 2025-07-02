@@ -322,12 +322,12 @@ i{
     margin: 0.5rem auto;
     box-sizing: border-box;
     text-align: center;
-    margin-right: 11.5%;
+    margin-right: 7%;
   }
 }
 
 /* Choices Section Styles */
 
-#grounding-choice {
+#grounding-choice, #freedom-choice, #energy-choice, #softness-choice {
   display: none;
 }
