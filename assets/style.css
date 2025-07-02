@@ -1,0 +1,233 @@
+:root {
+    /* Colors */
+    --color-primary: #b1a1ed;
+    --color-primary-dark: #9481d9;
+    --color-bg-primary: #f9f9f9;
+    --color-bg-secondary: #b1a1ed;
+    --color-bg-footer: #a39ac5;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-border: #373737;
+
+    /* Font & Topography */
+    --ff-body: "Quattrocento Sans", sans-serif;
+    --ff-header: "Ovo", sans-serif;
+    /* font sizes */
+    --fs-sm: 1.4rem;
+    --fs-md: 1.6rem;
+    --fs-lg: 2rem;
+    --fs-xl: 2.4rem;
+    --fs-xxl: 3.2rem;
+    --fs-biggest: clamp(3rem, 8vw, 5rem);
+    /* font weight */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+  /* z-index 
+    --zindex-menu: 1000;
+    --zindex-fixed: 1010; */
+
+    /* Width & Height */
+    --width-container: 98rem;
+    --height-header: 10rem;
+    --height-header-scroll: 8rem;
+
+    /* Transition and box shadow
+    --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    }
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-header);
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+main {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--color-bg-primary);
+  font-family: var(--ff-body);
+  font-size: var(--fs-md);
+  color: var(--color-text);
+  margin-top: var(--height-header);
+  line-height: 1.2;
+  overflow-x: hidden;
+}
+
+/* Header/Navigation Styles */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--height-header);
+  background-color: var(--color-bg-secondary);
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 50rem;
+  margin-left: 1.75rem; /* Adjusted margin for better alignment */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5rem; /* Adjust the value as needed */
+  
+}
+
+.nav-links li a, .dropdown-links li a {
+  color: var(--color-white);
+}
+
+i{
+    color: var(--color-white);
+    font-size: var(--fs-xl);
+}
+
+
+.title-home{
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    font-family: var(--ff-header);
+    margin-left: 2rem;
+}
+
+#mobilenav,
+#dropdown {
+  display: none;
+}
+
+/* Dropdown menu hidden by default */
+#dropdown {
+  display: none;
+  position: absolute;
+  top: var(--height-header);
+  right: 2rem;
+  background: var(--color-bg-secondary);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 100%;
+  z-index: 1100;
+}
+
+#dropdown.active {
+  display: block;
+}
+
+#dropdown .dropdown-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+#dropdown .dropdown-links li {
+  padding: 1rem 2rem;
+  text-align: left;
+}
+
+#dropdown .dropdown-links li a {
+  color: var(--color-white);
+  font-size: var(--fs-md);
+  transition: color 0.2s;
+}
+
+#dropdown .dropdown-links li a:hover {
+  color: var(--color-primary-dark);
+}
+
+#navicon-img, .navicon-img {
+  height: 100%;
+  max-height: 6rem;
+  width: auto;
+  margin-right: 2rem;
+  object-fit: contain;
+  display: block;
+}
+
+#mobilenav {
+  cursor: pointer;
+  z-index: 1200;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    gap: 7rem;
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  #mobilenav {
+    display: block; /* Show mobile nav icon */
+  }
+
+  #dropdown {
+    display: none;
+  }
+
+  #dropdown.active {
+    display: block;
+  }
+    
+}
+
